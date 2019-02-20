@@ -1,0 +1,26 @@
+#contenedor{
+    width: 1000px;
+    height: 350px;
+    padding: 15px;
+
+}
+#uno{
+height: 300px;
+width: 250px;
+float: left;
+}
+#dos{
+    height: 300px;
+width: 250px;
+float: left;
+}
+#tres{
+    height: 300px;
+width: 250px;
+float: left;
+}
+#cuatro{
+    height: 300px;
+width: 250px;
+float: right;
+}
