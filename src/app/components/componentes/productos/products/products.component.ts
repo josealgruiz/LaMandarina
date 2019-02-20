@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ProductService } from "../../../../services/product.service";
+import { Product } from 'src/app/models/products';
+
 
 @Component({
   selector: 'app-products',
@@ -7,9 +10,34 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductsComponent implements OnInit {
 
-  constructor() { }
+  products = [];
+  editingProduct: Product;
+  editing: boolean = false;
+
+  constructor(public productService : ProductService) { }
 
   ngOnInit() {
+    this.productService.getProducts().subscribe(products => {
+      console.log(products);
+      this.products = products;
+    });
+  }
+
+  deleteProduct(event, product){
+    if(confirm('Esta seguro que desea eliminar este producto?')){
+    this.productService.deleteProduct(product);
+    }
+  }
+
+  editProduct(event, product){
+    this.editingProduct = product;
+    this.editing = !this.editing;
+  }
+
+  updateProduct(){
+    this.productService.updateProduct(this.editingProduct);
+    this.editingProduct = {} as Product;
+    this.editing = false;
   }
 
 }

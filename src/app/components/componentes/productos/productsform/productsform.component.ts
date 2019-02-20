@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ProductService } from "../../../../services/product.service";
+import { Product } from 'src/app/models/products';
 
 @Component({
   selector: 'app-productsform',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductsformComponent implements OnInit {
 
-  constructor() { }
+  product = {} as Product;
+
+  constructor(public productService: ProductService) { }
 
   ngOnInit() {
   }
 
+  addProduct(){
+    if(this.product.name !== '' && this.product.price != 0 && this.product.description != '') {
+      this.productService.addProduct(this.product);
+      this.product = {} as Product;
+    }
+  }
 }
