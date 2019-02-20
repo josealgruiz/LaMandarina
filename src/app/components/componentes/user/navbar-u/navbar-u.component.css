@@ -6,9 +6,17 @@ ul {
     padding-top: 2px;
     overflow: hidden;
     background-color: hsl(39, 100%, 50%);
-border-radius: 5px;
+
   }
-  
+
+  .nombre{
+
+    color: hsl(0, 0%, 100%);
+    text-align: left;
+
+    font-size: 20px;
+  }
+
   li {
     float: left;
   }
