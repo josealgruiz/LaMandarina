@@ -1,3 +1,17 @@
-<p>
-  login-u works!
-</p>
+<div class="login-box">
+  <h1>Login Here</h1>
+  <form (ngSubmit)="validarUser()">
+      <!-- USERNAME INPUT -->
+      <label for="username">Username</label>
+      <input class="campo" type="text" placeholder="Enter Username" id="username" [(ngModel)]="User.username" name="username" required>
+      <!-- PASSWORD INPUT -->
+      <label for="password">Password</label>
+      <input type="password" placeholder="Enter Password" name="pass">
+      <!-- BOTON LOGIN -->
+      <input class="btn" type="submit" value="Log In">
+
+
+      <a href="Home.html">Lost your Password?</a><br>
+      <a href="#">Don't have An account?</a>
+  </form>
+</div>

@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule }   from '@angular/forms';
 
 /* FIREBASE */
 import { AngularFireModule } from "@angular/fire";
@@ -17,6 +18,7 @@ import { ProfileUComponent } from './components/componentes/user/profile-u/profi
 import { NavbarAComponent } from './components/componentes/admin/navbar-a/navbar-a.component';
 import { ProductsComponent } from './components/componentes/productos/products/products.component';
 import { ProductsformComponent } from './components/componentes/productos/productsform/productsform.component';
+import { VistaprodComponent } from './components/componentes/productos/vistaprod/vistaprod.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,8 @@ import { ProductsformComponent } from './components/componentes/productos/produc
     ProfileUComponent,
     NavbarAComponent,
     ProductsComponent,
-    ProductsformComponent
+    ProductsformComponent,
+    VistaprodComponent
   ],
   imports: [
     BrowserModule,

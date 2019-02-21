@@ -1,0 +1,40 @@
+div{
+background-color:hsl(39, 100%, 50%);
+text-align: center;
+position: relative;
+width: 350px;
+height: 180px;
+transform: translate(100%,100%);
+border-radius: 5px;
+}
+
+h1{
+    color: whitesmoke;
+}
+.btn{
+  
+    border: none;
+    outline: none;
+    height: 40px;
+    background: hsl(39, 100%, 50%);
+    color: hsl(0, 0%, 100%);
+    font-size: 18px;
+    border-radius: 20px;
+  }
+  .btn:hover:not(.active) {
+    background-color: hsl(0, 0%, 100%);
+    color: hsl(39, 100%, 50%);
+  }
+  .user{
+      color: whitesmoke;
+  }
+  .box{
+   margin-left: 15px;
+      border: none;
+      border-bottom: 1px solid #fff;
+      background: transparent;
+      outline: none;
+      height: 40px;
+      color: #fff;
+      font-size: 16px;
+  }
