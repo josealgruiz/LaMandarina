@@ -30,3 +30,7 @@ border-bottom-width: 1px;
 border-bottom-style: solid;
 border-bottom-color: black;
 }
+.main-box{
+  margin-top: 100px;
+  background-color: blue;
+}

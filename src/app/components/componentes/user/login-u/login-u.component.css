@@ -51,6 +51,14 @@
     font-size: 16px;
   }
   
+ 
+
+  .login-box a{
+    text-decoration: none;
+    font-size: 12px;
+    line-height: 20px;
+    color: hsl(0, 0%, 100%);
+  }
   .btn{
     border: none;
     outline: none;
@@ -59,13 +67,6 @@
     color: hsl(0, 0%, 100%);
     font-size: 18px;
     border-radius: 20px;
-  }
-
-  .login-box a{
-    text-decoration: none;
-    font-size: 12px;
-    line-height: 20px;
-    color: hsl(0, 0%, 100%);
   }
   
 

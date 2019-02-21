@@ -1,6 +1,5 @@
-<<<<<<< HEAD
-<div *ngIf= "products.length > 0; else noproducts">
-<ul class="list-group">
+<div  *ngIf= "products.length > 0; else noproducts">
+<ul  class="list-group">
   <li *ngFor="let p of products" class="list-group-item list-group-item-action">
     <h5>{{p.name}}</h5>
     <h3>{{p.price}}</h3>
@@ -37,13 +36,3 @@
 <ng-template #noproducts>
   <p>No hay productos.</p>
 </ng-template>
-=======
-<!--Producto Dummy-->
-<div class="box">
-    <img src="http://lorempixel.com/200/150" />
-  <p>Lorem ipsum dolor sit amet.</p>
-  <div class="rating">
-      <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
-      </div>
-</div>
->>>>>>> 8304cc91f844389072b85dae1fb6982e6f732ea8
