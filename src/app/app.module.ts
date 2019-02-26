@@ -8,7 +8,9 @@ import {Routes, RouterModule} from '@angular/router';
 import { AngularFireModule } from "@angular/fire";
 import { environment } from "../environments/environment";
 import { AngularFirestoreModule } from "@angular/fire/firestore";
-
+import { AngularFireDatabaseModule } from "@angular/fire/database";
+import { AngularFireAuth } from "@angular/fire/auth";
+import { AngularFireStorageModule } from "@angular/fire/storage";
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -61,11 +63,13 @@ import { PrincipalAdminComponent } from './components/vistas/admin/principal-adm
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     FormsModule,
+    AngularFireDatabaseModule,
+    AngularFireStorageModule,
     HttpClientModule,
     RouterModule
   
   ],
-  providers: [],
+  providers: [AngularFireAuth],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

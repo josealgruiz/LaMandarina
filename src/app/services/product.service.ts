@@ -14,7 +14,6 @@ export class ProductService {
   productDoc: AngularFirestoreDocument<Product>;
 
   constructor(public db: AngularFirestore) { 
-    /*this.products = this.db.collection('products').valueChanges();*/
     this.productsCollection = this.db.collection('products');
     this.products = this.productsCollection.snapshotChanges().pipe(map(actions => {
         return actions.map(a => {

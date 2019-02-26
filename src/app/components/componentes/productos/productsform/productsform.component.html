@@ -12,8 +12,18 @@
     <div class="form-group">
       <input type="number" name="price" [(ngModel)]="product.price" class="form-control" placeholder="Product Price">
     </div>  
-      
-    <button type="submit" class="btn btn-dark btn-block">
+    <hr>
+    <div class ="form-group">
+      <h5>Selecciona imagen:</h5>
+      <input type="file" accept=".png, .jpg" (change)="onUpload($event)">
+    </div>
+    <div class="progress">
+      <div class="progress-bar progress-bar-striped bg-sucsee" role="progressbar"
+        [style.width]="(uploadPercent | async) + '%'">
+      </div>
+    </div><br>
+    <input #imageProduct type="hidden" [value]="urlImage | async">
+    <button type="submit" class="btn btn-dark btn-block ">
       Save
     </button>
   </form>

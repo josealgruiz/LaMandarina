@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from './user';
+import { AngularFireAuth } from "@angular/fire/auth";
+import { auth } from "firebase/app";
+import { Router } from '@angular/router';
+import { AuthService } from "../../../../services/auth.service";
 
 
 
@@ -10,22 +13,35 @@ import { User } from './user';
   styleUrls: ['./login-u.component.css']
 })
 export class LoginUComponent implements OnInit {
- userModel= new User();
- name=this.userModel.name;
- pass=this.userModel.pass;
-
-  constructor() { }
-
+ 
+  constructor(public afAuth: AngularFireAuth, private router: Router, private AuthService: AuthService) { }
+  public email: string = '';
+  public password: string = ''; 
   ngOnInit() {
   }  
 
-  onSubmit(){
-    if(name=='user' || this.userModel.pass=='1'){
-    console.log(this.userModel);
+  onLogin(): void{
+  this.AuthService.loginEmailUser(this.email, this.password)
+    .then((res) => {
+    this.onLoginRedirect();
+    }).catch(err => console.log('err', err.message))
   }
-  if(name=='admin' || this.userModel.pass=='10'){
-  console.log(this.userModel);
-}
+
+  onLoginGoogle(): void{
+    this.AuthService.loginGoogleUser()
+    .then((res) =>{
+      console.log('resUser', res);
+      this.onLoginRedirect();
+    }).catch(err =>console.log('err', err.message))
+    
+  }
+
+  onlogout(){
+    this.AuthService.logoutUser();
+  }
+  
+  onLoginRedirect(): void{
+    this.router.navigate(['inicio'])
   }
 } 
 
