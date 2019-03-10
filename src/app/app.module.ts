@@ -33,6 +33,7 @@ import { NavegacionBienvenidaComponent } from './components/vistas/navegacion-bi
 import { NavegacionClienteComponent } from './components/vistas/navegacion-cliente/navegacion-cliente.component';
 import { NavegacionAdminComponent } from './components/vistas/navegacion-admin/navegacion-admin.component';
 import { PrincipalAdminComponent } from './components/vistas/admin/principal-admin/principal-admin.component';
+import { ShoppingCartComponent } from './components/componentes/user/shopping-cart/shopping-cart.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import { PrincipalAdminComponent } from './components/vistas/admin/principal-adm
     NavegacionBienvenidaComponent,
     NavegacionClienteComponent,
     NavegacionAdminComponent,
-    PrincipalAdminComponent
+    PrincipalAdminComponent,
+    ShoppingCartComponent
   ],
   imports: [
     BrowserModule,
