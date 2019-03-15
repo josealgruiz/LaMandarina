@@ -21,6 +21,7 @@ import { NavegacionBienvenidaComponent } from './components/vistas/navegacion-bi
 import { NavegacionClienteComponent } from './components/vistas/navegacion-cliente/navegacion-cliente.component';
 import { NavegacionAdminComponent } from './components/vistas/navegacion-admin/navegacion-admin.component';
 import { PrincipalAdminComponent } from './components/vistas/admin/principal-admin/principal-admin.component';
+import { CheckoutComponent } from './components/componentes/user/checkout/checkout.component';
 import { CartComponent } from './components/vistas/cart/cart.component';
 
 
@@ -41,7 +42,9 @@ const routes: Routes = [
     path: 'inicio', 
     children:[
       { path: '', component: PrincipalComponent },
-      { path: 'cart', component: CartComponent }
+      { path: 'cart', component: CartComponent },
+      { path: 'checkout', component: CheckoutComponent }
+
 
     ],
     component: NavegacionClienteComponent
