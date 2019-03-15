@@ -36,6 +36,7 @@ import { PrincipalAdminComponent } from './components/vistas/admin/principal-adm
 import { ShoppingCartComponent } from './components/componentes/user/shopping-cart/shopping-cart.component';
 import { CartComponent } from './components/vistas/cart/cart.component';
 import { CheckoutComponent } from './components/componentes/user/checkout/checkout.component';
+import { OrderComponent } from './components/vistas/order/order.component';
 
 @NgModule({
   declarations: [
@@ -61,7 +62,8 @@ import { CheckoutComponent } from './components/componentes/user/checkout/checko
     PrincipalAdminComponent,
     ShoppingCartComponent,
     CartComponent,
-    CheckoutComponent
+    CheckoutComponent,
+    OrderComponent
   ],
   imports: [
     BrowserModule,

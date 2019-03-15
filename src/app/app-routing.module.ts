@@ -23,7 +23,7 @@ import { NavegacionAdminComponent } from './components/vistas/navegacion-admin/n
 import { PrincipalAdminComponent } from './components/vistas/admin/principal-admin/principal-admin.component';
 import { CheckoutComponent } from './components/componentes/user/checkout/checkout.component';
 import { CartComponent } from './components/vistas/cart/cart.component';
-
+import { OrderComponent } from './components/vistas/order/order.component';
 
 const routes: Routes = [
   { path: '', redirectTo:'/bienvenida', pathMatch: 'full' },
@@ -43,12 +43,14 @@ const routes: Routes = [
     children:[
       { path: '', component: PrincipalComponent },
       { path: 'cart', component: CartComponent },
-      { path: 'checkout', component: CheckoutComponent }
+      { path: 'checkout', component: CheckoutComponent },
+      {path: 'order', component: OrderComponent}
 
 
     ],
     component: NavegacionClienteComponent
   },
+
   {
   path: 'admin', 
     children:[
