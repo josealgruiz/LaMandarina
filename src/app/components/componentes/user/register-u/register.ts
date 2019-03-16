@@ -4,9 +4,4 @@ export class Register {
     public lname: string;
     public username: string;
     public email: string;
-
-
-        constructor(){
-            
-        }
     }
