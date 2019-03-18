@@ -14,30 +14,28 @@ import { AuthService } from "../../../../services/auth.service";
 })
 export class LoginUComponent implements OnInit {
  
-  constructor(public afAuth: AngularFireAuth, private router: Router, private AuthService: AuthService) { }
+  constructor(public afAuth: AngularFireAuth, private router: Router, private authService: AuthService) { }
   public email: string = '';
-  public password: string = ''; 
+  public password: string = '';
   ngOnInit() {
-  }  
-
-  onLogin(): void{
-  this.AuthService.loginEmailUser(this.email, this.password)
-    .then((res) => {
-    this.onLoginRedirect();
-    }).catch(err => console.log('err', err.message))
   }
 
-  onLoginGoogle(): void{
-    this.AuthService.loginGoogleUser()
-    .then((res) =>{
-      console.log('resUser', res);
-      this.onLoginRedirect();
-    }).catch(err =>console.log('err', err.message))
-    
+  onLogin(): void {
+    this.authService.loginEmailUser(this.email, this.password)
+      .then((res) => {
+        this.onLoginRedirect();
+      }).catch(err => console.log('err', err.message));
+  }
+
+  onLoginGoogle(): void {
+    this.authService.loginGoogleUser()
+      .then((res) => {
+        this.onLoginRedirect();
+      }).catch(err => console.log('err', err.message));
   }
 
   onlogout(){
-    this.AuthService.logoutUser();
+    this.authService.logoutUser();
   }
   
   onLoginRedirect(): void{
