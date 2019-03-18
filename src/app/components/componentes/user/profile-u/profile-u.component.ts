@@ -9,24 +9,23 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class ProfileUComponent implements OnInit {
 
- constructor(private authService: AuthService) { }
- user: userInterface = {
-   name: '',
-   email: '',
-   roles: {
-     admin:true
-   }
- };
-
- public providerId: string = 'null';
-ngOnInit() {
- this.authService.isAuth().subscribe(user => {
-   if (user) {
-     this.user.name = user.displayName;
-     this.user.email = user.email;
+  constructor(private authService: AuthService) { }
+  user: userInterface = {
+    name: '',
+    email: '',
+    roles: {
+      admin: true
     }
- })
-}
+  };
+
+  public providerId: string = 'null';
+  ngOnInit() {
+    this.authService.isAuth().subscribe(user => {
+      if (user) {
+        this.user.name = user.displayName;
+        this.user.email = user.email;
+      }
+    })
+  }
 
 }
-

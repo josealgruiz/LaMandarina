@@ -20,18 +20,18 @@ export class LoginUComponent implements OnInit {
  }
 
  onLogin(): void {
-   this.authService.loginEmailUser(this.email, this.password)
-     .then((res) => {
-       this.onLoginRedirect();
-     }).catch(err => console.log('err', err.message));
- }
+  this.authService.loginEmailUser(this.email, this.password)
+    .then((res) => {
+      this.onLoginRedirect();
+    }).catch(err => console.log('err', err.message));
+}
 
- onLoginGoogle(): void {
-   this.authService.loginGoogleUser()
-     .then((res) => {
-       this.onLoginRedirect();
-     }).catch(err => console.log('err', err.message));
- }
+onLoginGoogle(): void {
+  this.authService.loginGoogleUser()
+    .then((res) => {
+      this.onLoginRedirect();
+    }).catch(err => console.log('err', err.message));
+}
 
  onlogout(){
    this.authService.logoutUser();
