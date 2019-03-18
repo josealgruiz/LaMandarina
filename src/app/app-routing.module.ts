@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AuthGuard } from 'src/app/components/guards/auth.guard';
+import { AdminGuard } from 'src/app/components/guards/admin.guard';
 
 import { AppComponent } from './app.component';
 import { NavbarUComponent } from './components/componentes/user/navbar-u/navbar-u.component';
@@ -56,8 +57,8 @@ const routes: Routes = [
   {
   path: 'admin', 
     children:[
-      { path: '', component: PrincipalAdminComponent },
-     { path: 'editproducts', component: EditproductsComponent }
+      { path: '', component: PrincipalAdminComponent, canActivate: [AuthGuard]},
+     { path: 'editproducts', component: EditproductsComponent, canActivate: [AuthGuard]},
 
     ],
     component: NavegacionAdminComponent
