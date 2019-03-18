@@ -38,8 +38,6 @@ import { CartComponent } from './components/vistas/cart/cart.component';
 import { CheckoutComponent } from './components/componentes/user/checkout/checkout.component';
 import { OrderComponent } from './components/vistas/order/order.component';
 import { AdminBarComponent } from './components/componentes/admin/admin-bar/admin-bar.component';
-import { ProductosAdminComponent } from './components/componentes/admin/productos-admin/productos-admin.component';
-import { ModalComponent } from './components/componentes/productos/modal/modal.component';
 
 @NgModule({
   declarations: [
@@ -67,9 +65,7 @@ import { ModalComponent } from './components/componentes/productos/modal/modal.c
     CartComponent,
     CheckoutComponent,
     OrderComponent,
-    AdminBarComponent,
-    ProductosAdminComponent,
-    ModalComponent
+    AdminBarComponent
   ],
   imports: [
     BrowserModule,
