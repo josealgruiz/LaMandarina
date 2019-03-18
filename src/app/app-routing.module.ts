@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AuthGuard } from 'src/app/components/guards/auth.guard';
 
 import { AppComponent } from './app.component';
 import { NavbarUComponent } from './components/componentes/user/navbar-u/navbar-u.component';
@@ -24,12 +25,13 @@ import { PrincipalAdminComponent } from './components/vistas/admin/principal-adm
 import { CheckoutComponent } from './components/componentes/user/checkout/checkout.component';
 import { CartComponent } from './components/vistas/cart/cart.component';
 import { OrderComponent } from './components/vistas/order/order.component';
+import { from } from 'rxjs';
 
 const routes: Routes = [
   { path: '', redirectTo:'/bienvenida', pathMatch: 'full' },
 
   {
-    path: 'bienvenida', 
+    path: '', 
     children:[
       { path: 'login', component: LoginComponent },
       { path: 'registro', component: RegisterComponent },
@@ -41,10 +43,10 @@ const routes: Routes = [
   {
     path: 'inicio', 
     children:[
-      { path: '', component: PrincipalComponent },
-      { path: 'cart', component: CartComponent },
-      { path: 'checkout', component: CheckoutComponent },
-      {path: 'order', component: OrderComponent}
+      { path: '', component: PrincipalComponent , canActivate: [AuthGuard]},
+      { path: 'cart', component: CartComponent , canActivate: [AuthGuard]},
+      { path: 'checkout', component: CheckoutComponent , canActivate: [AuthGuard]},
+      {path: 'order', component: OrderComponent, canActivate: [AuthGuard]}
 
 
     ],
