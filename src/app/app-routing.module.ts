@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AuthGuard } from './components/guards/auth.guard';
+import { AdminGuard } from './components/guards/admin.guard';
 
 import { AppComponent } from './app.component';
 import { NavbarUComponent } from './components/componentes/user/navbar-u/navbar-u.component';
@@ -41,10 +43,10 @@ const routes: Routes = [
   {
     path: 'inicio', 
     children:[
-      { path: '', component: PrincipalComponent },
-      { path: 'cart', component: CartComponent },
-      { path: 'checkout', component: CheckoutComponent },
-      {path: 'order', component: OrderComponent}
+      { path: '', component: PrincipalComponent , canActivate: [AuthGuard] },
+      { path: 'cart', component: CartComponent , canActivate: [AuthGuard] },
+      { path: 'checkout', component: CheckoutComponent , canActivate: [AuthGuard] },
+      {path: 'order', component: OrderComponent, canActivate: [AuthGuard] }
 
 
     ],

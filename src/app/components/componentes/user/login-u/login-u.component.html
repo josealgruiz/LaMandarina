@@ -6,7 +6,7 @@
       <input class="campo" type="email" placeholder="Enter Email"  [(ngModel)]="email" name="email" id="email">
       <!--<small class="text-danger" [class.d-none]="name.valid || name.touched">Username required</small>-->
       <!-- PASSWORD INPUT -->
-
+ 
       <label for="password">Password</label>
       <input type="password" placeholder="Enter Password" name="pass" [(ngModel)]="password" #name="ngModel">
       <!-- BOTON LOGIN -->
@@ -15,17 +15,18 @@
       <a class="btn-social btn btn-block btn-google" (click)="onLoginGoogle()">
         Google
       </a><br>
-
-      <a href="http://localhost:4200/bienvenida/pass">Lost your Password?</a><br>
-      <a href="http://localhost:4200/bienvenida/registro">Don't have An account?</a>
+ 
+      <a routerlink="inicio/pass">Lost your Password?</a><br>
+      <a routerlink="inicio/registro" >Don't have An account?</a>
   </form>
-</div>
-
-<a href="http://localhost:4200/admin">:)</a><br>
-
-<!--validarUser(){
-if (User.name=='admin' ){
-console.log(alert);
-  
-}-->
-
+ </div>
+ 
+ <a routerlink="/admin">:)</a><br>
+ 
+ <!--validarUser(){
+ if (User.name=='admin' ){
+ console.log(alert);
+  }-->
+ 
+ 
+ 

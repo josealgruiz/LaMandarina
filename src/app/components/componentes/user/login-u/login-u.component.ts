@@ -8,46 +8,42 @@ import { AuthService } from "../../../../services/auth.service";
 
 
 @Component({
-  selector: 'app-login-u',
-  templateUrl: './login-u.component.html',
-  styleUrls: ['./login-u.component.css']
+ selector: 'app-login-u',
+ templateUrl: './login-u.component.html',
+ styleUrls: ['./login-u.component.css']
 })
 export class LoginUComponent implements OnInit {
- 
-  constructor(public afAuth: AngularFireAuth, private router: Router, private AuthService: AuthService) { }
-  public email: string = '';
-  public password: string = ''; 
-  ngOnInit() {
-  }  
+ constructor(public afAuth: AngularFireAuth, private router: Router, private authService: AuthService) { }
+ public email: string = '';
+ public password: string = '';
+ ngOnInit() {
+ }
 
-  onLogin(): void{
-  this.AuthService.loginEmailUser(this.email, this.password)
-    .then((res) => {
-    this.onLoginRedirect();
-    }).catch(err => console.log('err', err.message))
-  }
+ onLogin(): void {
+   this.authService.loginEmailUser(this.email, this.password)
+     .then((res) => {
+       this.onLoginRedirect();
+     }).catch(err => console.log('err', err.message));
+ }
 
-  onLoginGoogle(): void{
-    this.AuthService.loginGoogleUser()
-    .then((res) =>{
-      console.log('resUser', res);
-      this.onLoginRedirect();
-    }).catch(err =>console.log('err', err.message))
-    
-  }
+ onLoginGoogle(): void {
+   this.authService.loginGoogleUser()
+     .then((res) => {
+       this.onLoginRedirect();
+     }).catch(err => console.log('err', err.message));
+ }
 
-  onlogout(){
-    this.AuthService.logoutUser();
-  }
-  
+ onlogout(){
+   this.authService.logoutUser();
+ }
   onLoginRedirect(): void{
-    this.router.navigate(['inicio'])
-  }
-} 
+   this.router.navigate(['inicio'])
+ }
+}
 
 
 
- 
-    
+  
+
 
 
