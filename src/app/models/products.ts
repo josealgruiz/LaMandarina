@@ -5,4 +5,5 @@ export interface Product {
     price?: number;
     url?: string;
     departamento?: string;
+    oferta?: string;
 }
