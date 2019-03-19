@@ -36,7 +36,7 @@ onLoginGoogle(): void {
 }
 
 onLoginRedirect(): void {
-  this.router.navigate(['admin/list-books']);
+  this.router.navigate(['inicio']);
 }
 
 }
