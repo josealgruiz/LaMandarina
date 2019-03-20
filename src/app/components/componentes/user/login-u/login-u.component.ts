@@ -19,17 +19,20 @@ export class LoginUComponent implements OnInit {
  public password: string = '';
  ngOnInit() {
  }
+/*
+ onLogin(): void {
+  this.authService.loginEmailUser(this.email, this.password).then(data =>{
+    this.authService.getProfile().then
+  })
 
- /*onLogin(): void {
-  this.authService.loginEmailUser(this.email, this.password)
-  const active = this.authService.getProfile(this.email);
+  
     if (active == true)
             this.onLoginRedirect();
             else{ console.log("Cuenta desactivada")
           this.authService.logoutUser()}
     
-}
-
+}*/
+/*
  onLogin(): void {
   this.authService.loginEmailUser(this.email, this.password)
     .then((res) => {

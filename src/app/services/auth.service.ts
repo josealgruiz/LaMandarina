@@ -15,26 +15,22 @@ import { Observable } from 'rxjs';
 })
 export class AuthService {
 
-    userCollection: AngularFirestoreCollection<User>
-    user: Observable<User[]>;
-    userDoc: AngularFirestoreDocument<User>;
-    
-     /*  constructor(private afsAuth: AngularFireAuth, private afs: AngularFirestore) { 
-     this.userCollection = this.afs.collection('user');
-        this.user = this.userCollection.snapshotChanges().pipe(map(actions => {
-            return actions.map(a => {
-              const data = a.payload.doc.data() as User;
-              data.id = a.payload.doc.id;
-              return data;
-            });
-          }));
-    
-      }*/
+  userCollection: AngularFirestoreCollection<userInterface>;
+  users: Observable<userInterface[]>;
+  user: Observable<userInterface>;
+  userDoc: AngularFirestoreDocument<userInterface>; 
 
-  constructor(private afsAuth: AngularFireAuth, private afs: AngularFirestore) { 
-
-
+  constructor(private afsAuth: AngularFireAuth, private afs: AngularFirestore, public db: AngularFirestore) { 
+    this.userCollection = this.db.collection('users');
+    this.users = this.userCollection.snapshotChanges().pipe(map(actions => {
+      return actions.map(a => {
+        const data = a.payload.doc.data() as userInterface;
+        data.id = a.payload.doc.id;
+        return data;
+      });
+    }));
   }
+
 
   registerUser(email: string, pass: string) {
     return new Promise((resolve, reject) => {
@@ -85,9 +81,28 @@ export class AuthService {
     return this.afs.doc<userInterface>(`users/${userUid}`);
   }
 
-getProfile(user){
+getProfile(user : userInterface){
   const usuario = this.afs.doc<userInterface>(`users/${user.active}`);
-  return usuario;
+  return user.active;
 }
+
+/*
+signInWithEmailAndPassword(email: string, password: string) {
+  return this.afsAuth.auth.signInWithEmailAndPassword(email, password)
+    .then((credential) => {
+      this.userInterface.getUser(credential.user.uid).subscribe(user => {
+        if (user.isActive === true) {
+          console.log('activo mano')
+          this.userService.setUser(credential.user.uid);
+          this.router.navigate(['/home']);
+        } else {
+          console.log('estas pegao\'')
+          this.getOut();
+          this.router.navigate(['/userdisabled']);
+        }
+      })
+    })
+}
+*/
 
 }
