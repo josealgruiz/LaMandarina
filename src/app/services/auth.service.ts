@@ -1,9 +1,11 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from "@angular/fire/auth";
 import { map } from "rxjs/operators";
-import { auth } from "firebase/app";
-import { AngularFirestore, AngularFirestoreDocument} from '@angular/fire/firestore';
+import { auth, User } from "firebase/app";
+import { AngularFirestore, AngularFirestoreDocument, AngularFirestoreCollection} from '@angular/fire/firestore';
 import { userInterface } from 'src/app/models/user';
+import { Observable } from 'rxjs';
+
 
 
 
@@ -13,8 +15,26 @@ import { userInterface } from 'src/app/models/user';
 })
 export class AuthService {
 
-public static userPath = '/users';
-  constructor(private afsAuth: AngularFireAuth, private afs: AngularFirestore) { }
+    userCollection: AngularFirestoreCollection<User>
+    user: Observable<User[]>;
+    userDoc: AngularFirestoreDocument<User>;
+    
+     /*  constructor(private afsAuth: AngularFireAuth, private afs: AngularFirestore) { 
+     this.userCollection = this.afs.collection('user');
+        this.user = this.userCollection.snapshotChanges().pipe(map(actions => {
+            return actions.map(a => {
+              const data = a.payload.doc.data() as User;
+              data.id = a.payload.doc.id;
+              return data;
+            });
+          }));
+    
+      }*/
+
+  constructor(private afsAuth: AngularFireAuth, private afs: AngularFirestore) { 
+
+
+  }
 
   registerUser(email: string, pass: string) {
     return new Promise((resolve, reject) => {
@@ -62,11 +82,12 @@ public static userPath = '/users';
 
 
   isUserAdmin(userUid) {
-    return this.afs.doc<userInterface>(`users/${userUid}`).valueChanges();
+    return this.afs.doc<userInterface>(`users/${userUid}`);
   }
 
-/*getProfile(){
-  return this.afs.doc<userInterface>(`users/${}`);
+getProfile(user){
+  const usuario = this.afs.doc<userInterface>(`users/${user.active}`);
+  return usuario;
 }
-*/
+
 }

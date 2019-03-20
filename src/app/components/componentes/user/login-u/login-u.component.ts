@@ -22,20 +22,20 @@ export class LoginUComponent implements OnInit {
 
  /*onLogin(): void {
   this.authService.loginEmailUser(this.email, this.password)
-  const active = this.authService.isUserActive();
+  const active = this.authService.getProfile(this.email);
     if (active == true)
             this.onLoginRedirect();
             else{ console.log("Cuenta desactivada")
           this.authService.logoutUser()}
     
-}*/
+}
 
  onLogin(): void {
   this.authService.loginEmailUser(this.email, this.password)
     .then((res) => {
             this.onLoginRedirect();
     }).catch(err => console.log('err', err.message));
-}
+}*/
 
 onLoginGoogle(): void {
   this.authService.loginGoogleUser()
