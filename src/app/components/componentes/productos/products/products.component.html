@@ -1,4 +1,4 @@
-<!--<div  *ngIf= "products.length > 0; else noproducts">
+<div  *ngIf= "products.length > 0; else noproducts">
 <ul  class="list-group">
   <li *ngFor="let p of products" class="list-group-item list-group-item-action">
     <h5>{{p.name}}</h5>
@@ -36,7 +36,7 @@
 <ng-template #noproducts>
   <p>No hay productos.</p>
 </ng-template>
--->
+
 
 <section class="row mt-5">
   <div class="col">
@@ -48,6 +48,7 @@
           <th scope="col">Nombre</th>
           <th scope="col">Descripcion</th>
           <th scope="col">Precio</th>
+          <th scope="col">Departamento</th>
           <th scope="col">Oferta</th>
           <th scope="col">&nbsp;</th>
           <th scope="col">&nbsp;</th>
@@ -59,6 +60,7 @@
           <td>{{p.name}}</td>
           <td>{{p.description}}</td>
           <td>{{p.price}} Bs.</td>
+          <td>{{p.departamento }}</td>
           <td>{{p.oferta == 1 ? 'Sí': 'No'}}</td>
           <td>
             <button class="btn btn-warning" data-toggle="modal" data-target="#modalProduct">Update</button>
@@ -71,3 +73,5 @@
     </table>
   </div>
 </section>
+
+

@@ -56,8 +56,8 @@ const routes: Routes = [
   {
   path: 'admin', 
     children:[
-      { path: '', component: PrincipalAdminComponent, canActivate: [AuthGuard , AdminGuard]},
-     { path: 'editproducts', component: EditproductsComponent, canActivate: [AuthGuard, AdminGuard]},
+      { path: '', component: PrincipalAdminComponent,},
+     { path: 'editproducts', component: EditproductsComponent},
 
     ],
     component: NavegacionAdminComponent

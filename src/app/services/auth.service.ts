@@ -2,8 +2,9 @@ import { Injectable } from '@angular/core';
 import { AngularFireAuth } from "@angular/fire/auth";
 import { map } from "rxjs/operators";
 import { auth } from "firebase/app";
-import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
-import { userInterface } from 'src/app/models/user';
+import { AngularFirestore, AngularFirestoreDocument, AngularFirestoreCollection } from '@angular/fire/firestore';
+import { userInterface } from "../models/user";
+import { Observable } from 'rxjs';
 
 
 @Injectable({
@@ -11,7 +12,23 @@ import { userInterface } from 'src/app/models/user';
 })
 export class AuthService {
 
+  userCollection: AngularFirestoreCollection<userInterface>;
+  users: Observable<userInterface[]>;
+  userDoc: AngularFirestoreDocument<userInterface>; 
+/* productsCollection: AngularFirestoreCollection<Product>;
+  products: Observable<Product[]>;
+  productDoc: AngularFirestoreDocument<Product>;
 
+  constructor(public db: AngularFirestore) { 
+    this.productsCollection = this.db.collection('products');
+    this.products = this.productsCollection.snapshotChanges().pipe(map(actions => {
+        return actions.map(a => {
+          const data = a.payload.doc.data() as Product;
+          data.id = a.payload.doc.id;
+          return data;
+        });
+      }));
+  }*/
   constructor(private afsAuth: AngularFireAuth, private afs: AngularFirestore) { }
 
   registerUser(email: string, pass: string) {

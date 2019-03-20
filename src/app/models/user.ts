@@ -8,5 +8,6 @@ export interface Roles{
     email?: string;
     pass?: string;
     roles: Roles;
+    enable?: boolean;
  }
  
