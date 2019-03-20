@@ -1,0 +1,39 @@
+<div class="card">
+  <div class="card-header">
+    Usuarios
+  </div>
+  <div class="card-body">
+    <h5 class="container">Special title treatment</h5>
+    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
+
+<!--
+<section class="products mt-10 block" *ngIf="users | async as usrs">
+    <div class="mb-10" *ngFor="let user of usrs">
+      <article class="card-w card-nav flex flex-s flex-aic" [ngClass]="cardStyle"
+        [ngStyle]="{'border': user.isActive ? '1.5px solid #00a651' : '1.5px solid rgb(216, 35, 35)'}">
+        <div class="w-100 flex flex-aic mt-10 mb-10">
+         
+          <h2 class="user card-title fl"><i class="fa fa-user-circle"></i> {{ user.firstName }} {{ user.lastName }} <b
+              *ngIf="user.type != 'user'">({{ user.type }})</b> <i class="cursor-p ml-10" (click)="user.hide=!user.hide"
+              [ngClass]="{'fa fa-minus-square': user.hide==false, 'fa fa-plus-square': user.hide==true}"></i> </h2>
+          <div class="btn-to block fr">
+            <label class="area-option-item--2 btn-to-left fw-bold"
+              [ngClass]="{'btn-to--disabled': (user.isActive==true), 'btn-to--enabled': (user.isActive==false)}"
+              (click)="changeStatus(user.uid, false)" *ngIf="user.type == 'user'">Disable</label>
+            <label class="area-option-item--2 btn-to-right fw-bold"
+              [ngClass]="{'btn-to--enabled': (user.isActive==true), 'btn-to--disabled': (user.isActive==false)}"
+              (click)="changeStatus(user.uid, true)" *ngIf="user.type == 'user'">Enable</label>
+          </div>
+        </div>
+        <ul *ngIf="!user.hide">
+          <li class="ml-10 mt-10 mb-10 card-title"><b class="card-title">username:</b> {{user.userName}}</li>
+          <li class="ml-10 mt-10 mb-10 card-title"><b class="card-title">email:</b> {{user.email}}</li>
+          <li class="ml-10 mt-10 mb-10 card-title"><b class="card-title">type:</b> {{user.type}}</li>
+          <li class="ml-10 mt-10 mb-10 card-title"><b class="card-title">joined:</b> {{user.joined | date}}</li>
+        </ul>
+      </article>
+    </div>
+  </section>-->
