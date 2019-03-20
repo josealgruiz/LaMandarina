@@ -7,6 +7,7 @@ import { AuthService } from "../../../../services/auth.service";
 
 
 
+
 @Component({
  selector: 'app-login-u',
  templateUrl: './login-u.component.html',
@@ -19,10 +20,20 @@ export class LoginUComponent implements OnInit {
  ngOnInit() {
  }
 
+ /*onLogin(): void {
+  this.authService.loginEmailUser(this.email, this.password)
+  const active = this.authService.isUserActive();
+    if (active == true)
+            this.onLoginRedirect();
+            else{ console.log("Cuenta desactivada")
+          this.authService.logoutUser()}
+    
+}*/
+
  onLogin(): void {
   this.authService.loginEmailUser(this.email, this.password)
     .then((res) => {
-      this.onLoginRedirect();
+            this.onLoginRedirect();
     }).catch(err => console.log('err', err.message));
 }
 

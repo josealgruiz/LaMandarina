@@ -43,10 +43,10 @@ const routes: Routes = [
   {
     path: 'inicio', 
     children:[
-      { path: '', component: PrincipalComponent, canActivate: [AuthGuard]},
-      { path: 'cart', component: CartComponent, canActivate: [AuthGuard]},
-      { path: 'checkout', component: CheckoutComponent, canActivate: [AuthGuard]},
-      {path: 'order', component: OrderComponent, canActivate: [AuthGuard]},
+      { path: '', component: PrincipalComponent},
+      { path: 'cart', component: CartComponent},
+      { path: 'checkout', component: CheckoutComponent},
+      {path: 'order', component: OrderComponent},
 
 
     ],
@@ -56,8 +56,8 @@ const routes: Routes = [
   {
   path: 'admin', 
     children:[
-      { path: '', component: PrincipalAdminComponent, canActivate: [AuthGuard , AdminGuard]},
-     { path: 'editproducts', component: EditproductsComponent, canActivate: [AuthGuard, AdminGuard]},
+      { path: '', component: PrincipalAdminComponent},
+     { path: 'editproducts', component: EditproductsComponent},
 
     ],
     component: NavegacionAdminComponent

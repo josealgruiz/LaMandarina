@@ -13,6 +13,7 @@ export class ProfileUComponent implements OnInit {
   user: userInterface = {
     name: '',
     email: '',
+    active: true,
     roles: {
       admin: true
     }

@@ -12,6 +12,7 @@ import { AngularFireDatabaseModule } from "@angular/fire/database";
 import { AngularFireAuth } from "@angular/fire/auth";
 import { AngularFireStorageModule } from "@angular/fire/storage";
 
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarUComponent } from './components/componentes/user/navbar-u/navbar-u.component';
@@ -38,6 +39,7 @@ import { CartComponent } from './components/vistas/cart/cart.component';
 import { CheckoutComponent } from './components/componentes/user/checkout/checkout.component';
 import { OrderComponent } from './components/vistas/order/order.component';
 import { AdminBarComponent } from './components/componentes/admin/admin-bar/admin-bar.component';
+import { UserListComponent } from './components/componentes/user/user-list/user-list.component';
 
 @NgModule({
   declarations: [
@@ -65,7 +67,8 @@ import { AdminBarComponent } from './components/componentes/admin/admin-bar/admi
     CartComponent,
     CheckoutComponent,
     OrderComponent,
-    AdminBarComponent
+    AdminBarComponent,
+    UserListComponent
   ],
   imports: [
     BrowserModule,

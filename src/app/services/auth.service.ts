@@ -2,8 +2,10 @@ import { Injectable } from '@angular/core';
 import { AngularFireAuth } from "@angular/fire/auth";
 import { map } from "rxjs/operators";
 import { auth } from "firebase/app";
-import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
+import { AngularFirestore, AngularFirestoreDocument} from '@angular/fire/firestore';
 import { userInterface } from 'src/app/models/user';
+
+
 
 
 @Injectable({
@@ -11,7 +13,7 @@ import { userInterface } from 'src/app/models/user';
 })
 export class AuthService {
 
-
+public static userPath = '/users';
   constructor(private afsAuth: AngularFireAuth, private afs: AngularFirestore) { }
 
   registerUser(email: string, pass: string) {
@@ -50,6 +52,7 @@ export class AuthService {
     const data: userInterface = {
       id: user.uid,
       email: user.email,
+      active: true,
       roles: {
         admin: true
       }
@@ -62,5 +65,8 @@ export class AuthService {
     return this.afs.doc<userInterface>(`users/${userUid}`).valueChanges();
   }
 
-
+/*getProfile(){
+  return this.afs.doc<userInterface>(`users/${}`);
+}
+*/
 }
