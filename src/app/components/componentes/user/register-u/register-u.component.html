@@ -1,26 +1,51 @@
-<div class="register-box">
-  <h1>Register Here</h1>
-  <form #registerForm="ngForm" (ngSubmit)="onAddUser()">
-      <!-- NAME INPUT -->
-      <label for="Name">Name</label>
-      <input class="campo" type="text" placeholder="Enter Name" >
-      <!-- Lastname INPUT -->
-      <label for="Lastname">Lastname</label>
-      <input class="campo" type="text" placeholder="Enter Lastname" >
-      <!-- Email INPUT -->
-      <label for="Email">Email</label>
-      <input class="campo" type="text" placeholder="Enter Email" [(ngModel)]="email" name="email">
-      <!-- USERNAME INPUT -->
-      <label for="username">Username</label>
-      <input class="campo" type="text" placeholder="Enter Username" >
-      <!-- PASSWORD INPUT -->
-      <label for="password">Password</label>
-      <input type="password" placeholder="Enter Password" [(ngModel)]="password" name="password">
-      <!-- PASSWORD INPUT -->
-      <label for="password">Confirm Password</label>
-      <input type="password" placeholder="Enter Password" >
-      <!-- BOTON REGISTER -->
-      <button type='submit' class="btn">Register</button>
-  </form>
-</div>
+<form #registerForm="ngForm" (submit)="onAddUser()">
+    <div class="register-box">
+
+    <div class=" bajarc">
+    
+              <div class="card-body">
+                <h4 class="card-title text-center">Register Here</h4>
+                <form class="form-signin">
+
+
+                  <div class="form-label-group">
+                      <input class="form-control campo" id="inputName" type="text" placeholder="Enter Name" name="name" id="name" required autofocus> 
+                       <label for="Name">Name</label>
+                     </div>
+
+                     
+                  <div class="form-label-group">
+                    <input class="form-control campo" id="inputName" type="text" placeholder="Enter Name" name="name" id="name" required autofocus> 
+                     <label for="Name">Lastname</label>
+                   </div>
+
+                      <div class="form-label-group">
+                    <input type="email" id="inputEmail" class="form-control campo" placeholder="Email address" [(ngModel)]="email" name="email" id="email" required autofocus>
+                    <label for="email">Email</label>
+                  </div>
+
+                  <div class="form-label-group">
+                      <input type="text"  class="form-control campo" placeholder="Enter Username" required autofocus>
+                      <label for="username">Username</label>
+                    </div>
+
+                    <div class="form-label-group">
+                        <input type="password" id="inputPassword" class="form-control" placeholder="Password" name="pass" [(ngModel)]="password" #name="ngModel" required>
+                        <label for="inputPassword">Password</label>
+                      </div>
+
+                  <div class="form-label-group">
+                    <input type="password" id="inputPassword" class="form-control" placeholder="Confirm Password" name="pass"  required>
+                    <label for="inputPassword">Confirm Password</label>
+                  </div>
+                  <button class="btn btn-lg btn-primary btn-block text-uppercase" type='submit'>Register</button>
+
+
+                </form>
+              </div>
+            </div>
+          </div>
+    </form>
+
+
 

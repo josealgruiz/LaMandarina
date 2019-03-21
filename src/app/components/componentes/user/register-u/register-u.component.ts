@@ -22,7 +22,7 @@ export class RegisterUComponent implements OnInit {
  }
 
 
-onAddUser(){
+ onAddUser(){
   this.authService.registerUser(this.email, this.password)
   .then((res) =>{
     this.router.navigate(['inicio']);
