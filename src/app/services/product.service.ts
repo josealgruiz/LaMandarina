@@ -40,5 +40,6 @@ export class ProductService {
   updateProduct(product: Product){
     this.productDoc = this.db.doc(`products/${product.id}`);
     this.productDoc.update(product);
+
   }
 }

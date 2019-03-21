@@ -56,11 +56,7 @@ const routes: Routes = [
   {
   path: 'admin', 
     children:[
-<<<<<<< HEAD
-      { path: '', component: PrincipalAdminComponent,},
-=======
       { path: '', component: PrincipalAdminComponent},
->>>>>>> origin/DevJose
      { path: 'editproducts', component: EditproductsComponent},
 
     ],

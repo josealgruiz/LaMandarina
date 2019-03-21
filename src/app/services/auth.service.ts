@@ -25,6 +25,12 @@ export class AuthService {
       });
     }));
   }
+
+  isActive(user: userInterface){
+    this.userDoc = this.db.doc(`users/${user.enable}`);
+    return this.userDoc;
+  }
+
   registerUser(email: string, pass: string) {
     return new Promise((resolve, reject) => {
       this.afsAuth.auth.createUserWithEmailAndPassword(email, pass)
@@ -73,5 +79,8 @@ export class AuthService {
     return this.afs.doc<userInterface>(`users/${userUid}`).valueChanges();
   }
 
+  getUsers(){
+    return this.users;
+  }
 
 }

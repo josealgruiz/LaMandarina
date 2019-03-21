@@ -10,25 +10,7 @@
     </button>
     <button (click)= "editProduct($event, p)" class="btn btn-secondary">
       Edit
-    </button>
-    <div *ngIf = "editing && editingProduct.id == p.id">
-      <form (ngSubmit)="updateProduct()">
-
-        <div class="form-group mt-3" >
-          <input type="text" name="name" [(ngModel)]="editingProduct.name" class="form-control">
-        </div>
-        <div class="form-group">
-          <input type="text" name="description" [(ngModel)]="editingProduct.description" class="form-control">
-        </div>
-        <div class="form-group">
-          <input type="number" name="price" [(ngModel)]="editingProduct.price" class="form-control">
-        </div>
-                
-        <button type="submit" class="btn btn-success btn-block">
-          Update
-        </button>
-      </form>
-    </div>
+    </button>   
   </li>
 </ul>
 </div>
@@ -61,17 +43,19 @@
           <td>{{p.description}}</td>
           <td>{{p.price}} Bs.</td>
           <td>{{p.departamento }}</td>
-          <td>{{p.oferta == 1 ? 'Sí': 'No'}}</td>
+          <td>{{p.oferta}}</td>
           <td>
-            <button class="btn btn-warning" data-toggle="modal" data-target="#modalProduct">Update</button>
-          </td>
+            <button class="btn btn-warning" (click)= "editProduct($event, p)" data-toggle="modal" data-target="#modalProduct">Update</button>
+          </td>         
           <td>
-            <button class="btn btn-secondary">Delete</button>
+            <button class="btn btn-secondary" (click) = "deleteProduct($event, p)">Delete</button>
           </td>
+          
         </tr>
       </tbody>
     </table>
   </div>
 </section>
+
 
 
