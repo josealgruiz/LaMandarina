@@ -3,6 +3,7 @@ import { AngularFireAuth } from "@angular/fire/auth";
 import { auth } from "firebase/app";
 import { Router } from '@angular/router';
 import { AuthService } from "../../../../services/auth.service";
+import { userInterface } from "../../../../models/user";
 
 
 
@@ -14,9 +15,10 @@ import { AuthService } from "../../../../services/auth.service";
  styleUrls: ['./login-u.component.css']
 })
 export class LoginUComponent implements OnInit {
- constructor(public afAuth: AngularFireAuth, private router: Router, private authService: AuthService) { }
+ constructor(public afAuth: AngularFireAuth, private router: Router, public authService: AuthService) { }
  public email: string = '';
  public password: string = '';
+ users = [];
  ngOnInit() {
  }
 /*
@@ -39,6 +41,9 @@ export class LoginUComponent implements OnInit {
             this.onLoginRedirect();
     }).catch(err => console.log('err', err.message));
 }
+
+
+
 
 onLoginGoogle(): void {
   this.authService.loginGoogleUser()

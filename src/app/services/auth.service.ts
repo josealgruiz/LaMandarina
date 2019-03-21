@@ -1,13 +1,10 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from "@angular/fire/auth";
 import { map } from "rxjs/operators";
-import { auth, User } from "firebase/app";
-import { AngularFirestore, AngularFirestoreDocument, AngularFirestoreCollection} from '@angular/fire/firestore';
-import { userInterface } from 'src/app/models/user';
+import { auth } from "firebase/app";
+import { AngularFirestore, AngularFirestoreDocument, AngularFirestoreCollection } from '@angular/fire/firestore';
+import { userInterface } from "../models/user";
 import { Observable } from 'rxjs';
-
-
-
 
 
 @Injectable({
@@ -17,9 +14,7 @@ export class AuthService {
 
   userCollection: AngularFirestoreCollection<userInterface>;
   users: Observable<userInterface[]>;
-  user: Observable<userInterface>;
   userDoc: AngularFirestoreDocument<userInterface>; 
-
   constructor(private afsAuth: AngularFireAuth, private afs: AngularFirestore, public db: AngularFirestore) { 
     this.userCollection = this.db.collection('users');
     this.users = this.userCollection.snapshotChanges().pipe(map(actions => {
@@ -31,6 +26,10 @@ export class AuthService {
     }));
   }
 
+  isActive(user: userInterface){
+    this.userDoc = this.db.doc(`users/${user.enable}`);
+    return this.userDoc;
+  }
 
   registerUser(email: string, pass: string) {
     return new Promise((resolve, reject) => {
@@ -68,7 +67,6 @@ export class AuthService {
     const data: userInterface = {
       id: user.uid,
       email: user.email,
-      active: true,
       roles: {
         admin: true
       }
@@ -78,31 +76,11 @@ export class AuthService {
 
 
   isUserAdmin(userUid) {
-    return this.afs.doc<userInterface>(`users/${userUid}`);
+    return this.afs.doc<userInterface>(`users/${userUid}`).valueChanges();
   }
 
-getProfile(user : userInterface){
-  const usuario = this.afs.doc<userInterface>(`users/${user.active}`);
-  return user.active;
-}
-
-/*
-signInWithEmailAndPassword(email: string, password: string) {
-  return this.afsAuth.auth.signInWithEmailAndPassword(email, password)
-    .then((credential) => {
-      this.userInterface.getUser(credential.user.uid).subscribe(user => {
-        if (user.isActive === true) {
-          console.log('activo mano')
-          this.userService.setUser(credential.user.uid);
-          this.router.navigate(['/home']);
-        } else {
-          console.log('estas pegao\'')
-          this.getOut();
-          this.router.navigate(['/userdisabled']);
-        }
-      })
-    })
-}
-*/
+  getUsers(){
+    return this.users;
+  }
 
 }

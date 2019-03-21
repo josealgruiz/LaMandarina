@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ProductService } from "../../../../services/product.service";
+import { Product } from 'src/app/models/products';
+
 
 @Component({
   selector: 'app-vistaprod',
@@ -7,9 +10,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class VistaprodComponent implements OnInit {
 
-  constructor() { }
+  products = [];
+
+  constructor(public productService : ProductService) { }
 
   ngOnInit() {
+    
+    this.productService.getProducts().subscribe(products => {
+    this.products = products;
+    });
   }
 
 }

@@ -9,5 +9,6 @@ export interface Roles{
     pass?: string;
     active?: boolean;
     roles: Roles;
+    enable?: boolean;
  }
  

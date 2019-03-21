@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule }   from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import {Routes, RouterModule} from '@angular/router';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 /* FIREBASE */
 import { AngularFireModule } from "@angular/fire";
@@ -79,7 +80,8 @@ import { UserListComponent } from './components/componentes/user/user-list/user-
     AngularFireDatabaseModule,
     AngularFireStorageModule,
     HttpClientModule,
-    RouterModule
+    RouterModule,
+    NgbModule.forRoot()
   
   ],
   providers: [AngularFireAuth],

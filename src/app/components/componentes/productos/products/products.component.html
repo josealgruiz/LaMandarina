@@ -1,4 +1,4 @@
-<!--<div  *ngIf= "products.length > 0; else noproducts">
+<div  *ngIf= "products.length > 0; else noproducts">
 <ul  class="list-group">
   <li *ngFor="let p of products" class="list-group-item list-group-item-action">
     <h5>{{p.name}}</h5>
@@ -10,25 +10,7 @@
     </button>
     <button (click)= "editProduct($event, p)" class="btn btn-secondary">
       Edit
-    </button>
-    <div *ngIf = "editing && editingProduct.id == p.id">
-      <form (ngSubmit)="updateProduct()">
-
-        <div class="form-group mt-3" >
-          <input type="text" name="name" [(ngModel)]="editingProduct.name" class="form-control">
-        </div>
-        <div class="form-group">
-          <input type="text" name="description" [(ngModel)]="editingProduct.description" class="form-control">
-        </div>
-        <div class="form-group">
-          <input type="number" name="price" [(ngModel)]="editingProduct.price" class="form-control">
-        </div>
-                
-        <button type="submit" class="btn btn-success btn-block">
-          Update
-        </button>
-      </form>
-    </div>
+    </button>   
   </li>
 </ul>
 </div>
@@ -36,7 +18,7 @@
 <ng-template #noproducts>
   <p>No hay productos.</p>
 </ng-template>
--->
+
 
 <section class="row mt-5">
   <div class="col">
@@ -48,6 +30,7 @@
           <th scope="col">Nombre</th>
           <th scope="col">Descripcion</th>
           <th scope="col">Precio</th>
+          <th scope="col">Departamento</th>
           <th scope="col">Oferta</th>
           <th scope="col">&nbsp;</th>
           <th scope="col">&nbsp;</th>
@@ -59,15 +42,20 @@
           <td>{{p.name}}</td>
           <td>{{p.description}}</td>
           <td>{{p.price}} Bs.</td>
-          <td>{{p.oferta == 1 ? 'Sí': 'No'}}</td>
+          <td>{{p.departamento }}</td>
+          <td>{{p.oferta}}</td>
           <td>
-            <button class="btn btn-warning" data-toggle="modal" data-target="#modalProduct">Update</button>
-          </td>
+            <button class="btn btn-warning" (click)= "editProduct($event, p)" data-toggle="modal" data-target="#modalProduct">Update</button>
+          </td>         
           <td>
-            <button class="btn btn-secondary">Delete</button>
+            <button class="btn btn-secondary" (click) = "deleteProduct($event, p)">Delete</button>
           </td>
+          
         </tr>
       </tbody>
     </table>
   </div>
 </section>
+
+
+
