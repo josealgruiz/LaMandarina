@@ -1,13 +1,24 @@
-<div class="lost-a-box">
-    <h1>Lost Account?</h1>
-    <form #lostaForm="ngForm" (ngSubmit)="onSubmit()" novalidate>
-        <!-- USERNAME INPUT -->
-        <label class="user"for="username" >Username or Email</label>
-        <input class="box" type="text" placeholder="  ">
-        <!-- BOTON LOGIN -->
-        <a href="http://localhost:4200/bienvenida/login"><input [disabled]="lostaForm.form.invalid" class="btn"btype="submit" value="Recover">
-</a>
+<form #lostaForm="ngForm" (Submit)="onSubmit()" novalidate>
+    <div class=" bajarc">
+    
+              <div class="card-body">
+                <h4 class="card-title text-center">Lost Account?</h4>
+                <form class="form-signin">
+    
+    
+                  <div class="form-label-group">
+                      <input type="email" id="inputEmail" class="form-control" placeholder="Enter Email" name="email" [(ngModel)]="email" #name="ngModel" required>
+                      <label for="inputEmail">Enter Email ot Username</label>
+                    </div>
+    
+    
+                  <button class="btn btn-lg btn-primary btn-block text-uppercase" type="Submit">Recover</button>
+                  
+                </form>
+              </div>
+            </div>
     </form>
-  </div>
+    
+
 
    

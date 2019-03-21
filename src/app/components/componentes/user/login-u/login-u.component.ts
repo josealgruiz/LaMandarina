@@ -32,13 +32,13 @@ export class LoginUComponent implements OnInit {
           this.authService.logoutUser()}
     
 }*/
-/*
+
  onLogin(): void {
   this.authService.loginEmailUser(this.email, this.password)
     .then((res) => {
             this.onLoginRedirect();
     }).catch(err => console.log('err', err.message));
-}*/
+}
 
 onLoginGoogle(): void {
   this.authService.loginGoogleUser()
