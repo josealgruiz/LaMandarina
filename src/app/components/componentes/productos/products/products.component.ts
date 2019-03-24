@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from "../../../../services/product.service";
-import { Product } from 'src/app/models/products';
+import { ProductInterface } from 'src/app/models/products';
+import {NgForm} from '@angular/forms';
 
 
 @Component({
@@ -10,18 +11,23 @@ import { Product } from 'src/app/models/products';
 })
 export class ProductsComponent implements OnInit {
 
-  products = [];
-  editingProduct: Product;
-  editing: boolean = false;
 
   constructor(public productService : ProductService) { }
+ private product: ProductInterface[];
 
   ngOnInit() {
     this.productService.getProducts().subscribe(products => {
       console.log(products);
-      this.products = products;
+      this.product = products;
     });
   }
+
+  getListProducts(){
+    this.productService.getAllProducts().subscribe(products => {
+      this.product = products;
+    });
+  }
+
 
   deleteProduct(event, product){
     if(confirm('Esta seguro que desea eliminar este producto?')){
@@ -29,15 +35,8 @@ export class ProductsComponent implements OnInit {
     }
   }
 
-  editProduct(event, product){
-    this.editingProduct = product;
-    this.editing = !this.editing;
-  }
 
-  updateProduct(){
-    this.productService.updateProduct(this.editingProduct);
-    this.editingProduct = {} as Product;
-    this.editing = false;
-  }
 
 }
+
+

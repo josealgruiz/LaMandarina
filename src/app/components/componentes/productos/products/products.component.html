@@ -45,7 +45,7 @@
           <td>{{p.departamento }}</td>
           <td>{{p.oferta}}</td>
           <td>
-            <button class="btn btn-warning" (click)= "editProduct($event, p)" data-toggle="modal" data-target="#modalProduct">Update</button>
+            <button class="btn btn-warning" (click)= "editProduct(p)" data-toggle="modal" data-target="#modalProduct">Update</button>
           </td>         
           <td>
             <button class="btn btn-secondary" (click) = "deleteProduct($event, p)">Delete</button>
@@ -56,6 +56,6 @@
     </table>
   </div>
 </section>
-
+<app-modal></app-modal>
 
 

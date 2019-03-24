@@ -15,7 +15,7 @@
       <input type="number" name="price" [(ngModel)]="product.price" class="form-control" placeholder="Product Price">
     </div>  
     <div>
-        <input type="text" name="oferta" [(ngModel)]="product.oferta" class="form-control" placeholder="Oferta?">
+        <input type="text" name="oferta" [(ngModel)]="product.oferta" class="form-control" placeholder="Oferta">
     </div>
     <hr>
     <div class ="form-group">
@@ -28,8 +28,13 @@
       </div>
     </div><br>
     <input #imageProduct type="hidden" [value]="urlImage | async" >
-    <button type="submit" class="btn btn-dark btn-block ">
-      Save
-    </button>
+
+    <button *ngIf="urlImage | async; else btnDisable"
+    type="submit" class="btn btn-dark btn-block ">Save</button>
+     
+    <ng-template #btnDisable>
+      <button type="submit" disabled=true class="btn btn-dark btn-block">Save</button>
+    </ng-template>
+  
   </form>
 </div>
