@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from "../../../../services/product.service";
 import { Product } from 'src/app/models/products';
-
+import {BsModalService, BsModalRef} from'ngx-bootstrap/modal';
 
 @Component({
   selector: 'app-products',
