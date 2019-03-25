@@ -1,9 +1,9 @@
-export interface ProductInterface {
+export interface Product {
     id?: string;
     name?: string;
     description?: string;
     price?: number;
-    urlImage?: string;
+    url?: string;
     departamento?: string;
     oferta?: string;
 }

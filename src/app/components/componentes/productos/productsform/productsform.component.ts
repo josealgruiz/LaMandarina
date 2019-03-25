@@ -1,6 +1,6 @@
-import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ProductService } from "../../../../services/product.service";
-import { ProductInterface } from 'src/app/models/products';
+import { Product } from 'src/app/models/products';
 import { AngularFireStorage } from "@angular/fire/storage";
 import { finalize } from "rxjs/operators";
 import { Observable } from 'rxjs';
@@ -12,11 +12,10 @@ import { Observable } from 'rxjs';
 })
 export class ProductsformComponent implements OnInit {
 
-  product = {} as ProductInterface;
+  product = {} as Product;
 
   constructor(public productService: ProductService, private storage: AngularFireStorage) { }
 
-  @ViewChild('imageProduct') inputImageProduct: ElementRef;
   uploadPercent: Observable<number>;
   urlImage: Observable<string>;
 
@@ -38,10 +37,7 @@ export class ProductsformComponent implements OnInit {
   addProduct(){
     if(this.product.name !== '' && this.product.price != 0 && this.product.description != '') {
       this.productService.addProduct(this.product);
-      this.product = {} as ProductInterface;
-
+      this.product = {} as Product;
     }
   }
 }
-
-

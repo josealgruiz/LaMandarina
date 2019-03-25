@@ -45,23 +45,7 @@
           <td>{{p.departamento }}</td>
           <td>{{p.oferta}}</td>
           <td>
-            <button type="button" class="btn btn-warning" (click)= "editProduct(p)" data-toggle="modal" data-toggle="modal" data-target="#dmodal">Update</button>
-            <div class="modal" id="dmodal">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <div class="modal-title">HELLO</div>
-                        <button type="button" class="close"><span>&times;</span></button>
-                      </div>
-                      <div class="modal-body">
-                        <p>This is a modal body</p>
-                      </div>
-                      <div class="modal-footer">
-                        <button type="button" class="btn bnt-secondary">Confirm</button>
-                      </div>
-                    </div>
-                </div>
-              </div>
+            <button class="btn btn-warning" (click)= "editProduct($event, p)" data-toggle="modal" data-target="#modalProduct">Update</button>
           </td>         
           <td>
             <button class="btn btn-secondary" (click) = "deleteProduct($event, p)">Delete</button>
