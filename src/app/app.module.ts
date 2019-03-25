@@ -4,6 +4,7 @@ import { FormsModule }   from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import {Routes, RouterModule} from '@angular/router';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {ModalModule} from 'ngx-bootstrap/modal';
 
 /* FIREBASE */
 import { AngularFireModule } from "@angular/fire";
@@ -81,7 +82,8 @@ import { UserListComponent } from './components/componentes/user/user-list/user-
     AngularFireStorageModule,
     HttpClientModule,
     RouterModule,
-    NgbModule.forRoot()
+    NgbModule.forRoot(),
+    ModalModule
   
   ],
   providers: [AngularFireAuth],
