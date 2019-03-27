@@ -37,7 +37,7 @@
             </div>
             <div class="form-group">
               <label for="description" class="col-form-label">Descripcion:</label>
-              <textarea class="form-control" id="description" [(ngModel)]="this.productService.selectedProduct.description"></textarea>
+              <input type="text" class="form-control" name="description" [(ngModel)]="this.productService.selectedProduct.description" >
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal" #btnClose>Salir</button>
