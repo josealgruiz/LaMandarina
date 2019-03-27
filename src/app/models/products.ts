@@ -6,4 +6,5 @@ export interface Product {
     url?: string;
     departamento?: string;
     oferta?: string;
+    
 }

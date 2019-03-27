@@ -26,6 +26,7 @@ import { PrincipalAdminComponent } from './components/vistas/admin/principal-adm
 import { CheckoutComponent } from './components/componentes/user/checkout/checkout.component';
 import { CartComponent } from './components/vistas/cart/cart.component';
 import { OrderComponent } from './components/vistas/order/order.component';
+import { DetalleprodComponent } from './components/componentes/productos/detalleprod/detalleprod.component';
 
 const routes: Routes = [
   { path: '', redirectTo:'/bienvenida', pathMatch: 'full' },
@@ -47,6 +48,7 @@ const routes: Routes = [
       { path: 'cart', component: CartComponent},
       { path: 'checkout', component: CheckoutComponent},
       {path: 'order', component: OrderComponent},
+      {path: 'product/:id', component: DetalleprodComponent},
 
 
     ],

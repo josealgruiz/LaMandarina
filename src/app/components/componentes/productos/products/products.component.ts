@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ProductService } from "../../../../services/product.service";
 import { Product } from 'src/app/models/products';
 import {BsModalService, BsModalRef} from'ngx-bootstrap/modal';
+import { NgForm } from "@angular/forms";
 
 @Component({
   selector: 'app-products',
@@ -10,22 +11,27 @@ import {BsModalService, BsModalRef} from'ngx-bootstrap/modal';
 })
 export class ProductsComponent implements OnInit {
 
-  products = [];
   editingProduct: Product;
   editing: boolean = false;
-
+  private products: Product[];
   constructor(public productService : ProductService) { }
+  
 
   ngOnInit() {
-    this.productService.getProducts().subscribe(products => {
-      console.log(products);
-      this.products = products;
-    });
+    this.getListProducts();
+    
   }
 
-  deleteProduct(event, product){
-    if(confirm('Esta seguro que desea eliminar este producto?')){
-    this.productService.deleteProduct(product);
+  getListProducts(){
+    this.productService.getProducts().subscribe(products => {
+    this.products = products;
+  });
+  }
+
+  onDeleteProduct(idProduct: string){
+    const confirmacion = confirm('Esta seguro que desea eliminar el producto?')
+    if(confirmacion){
+      this.productService.deleteProduct(idProduct);
     }
   }
 
@@ -34,10 +40,10 @@ export class ProductsComponent implements OnInit {
     this.editing = !this.editing;
   }
 
-  updateProduct(){
-    this.productService.updateProduct(this.editingProduct);
-    this.editingProduct = {} as Product;
-    this.editing = false;
-  }
 
+  
+  onPreUpdateProduct(product: Product){
+    console.log('Producto', product)
+    this.productService.selectedProduct = Object.assign({}, product)
+  }
 }

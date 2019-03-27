@@ -13,7 +13,7 @@ import { AngularFirestoreModule } from "@angular/fire/firestore";
 import { AngularFireDatabaseModule } from "@angular/fire/database";
 import { AngularFireAuth } from "@angular/fire/auth";
 import { AngularFireStorageModule } from "@angular/fire/storage";
-
+import { AngularFirestore } from "@angular/fire/firestore";
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -42,6 +42,8 @@ import { CheckoutComponent } from './components/componentes/user/checkout/checko
 import { OrderComponent } from './components/vistas/order/order.component';
 import { AdminBarComponent } from './components/componentes/admin/admin-bar/admin-bar.component';
 import { UserListComponent } from './components/componentes/user/user-list/user-list.component';
+import { ModalComponent } from './components/componentes/productos/modal/modal.component';
+import { DetalleprodComponent } from './components/componentes/productos/detalleprod/detalleprod.component';
 
 @NgModule({
   declarations: [
@@ -70,7 +72,9 @@ import { UserListComponent } from './components/componentes/user/user-list/user-
     CheckoutComponent,
     OrderComponent,
     AdminBarComponent,
-    UserListComponent
+    UserListComponent,
+    ModalComponent,
+    DetalleprodComponent
   ],
   imports: [
     BrowserModule,
@@ -86,7 +90,7 @@ import { UserListComponent } from './components/componentes/user/user-list/user-
     ModalModule
   
   ],
-  providers: [AngularFireAuth],
+  providers: [AngularFireAuth, AngularFirestore],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

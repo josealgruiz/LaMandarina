@@ -1,4 +1,4 @@
-<div  *ngIf= "products.length > 0; else noproducts">
+<!--<div  *ngIf= "products.length > 0; else noproducts">
 <ul  class="list-group">
   <li *ngFor="let p of products" class="list-group-item list-group-item-action">
     <h5>{{p.name}}</h5>
@@ -19,7 +19,7 @@
   <p>No hay productos.</p>
 </ng-template>
 
-
+-->
 <section class="row mt-5">
   <div class="col">
     <button class="btn btn-outline-warning float-right mb-3" data-toggle="modal" data-target="#modalProduct">New Book</button>
@@ -45,10 +45,10 @@
           <td>{{p.departamento }}</td>
           <td>{{p.oferta}}</td>
           <td>
-            <button class="btn btn-warning" (click)= "editProduct($event, p)" data-toggle="modal" data-target="#modalProduct">Update</button>
+            <button class="btn btn-warning" (click)= "onPreUpdateProduct(p)" data-toggle="modal" data-target="#modalProduct">Update</button>
           </td>         
           <td>
-            <button class="btn btn-secondary" (click) = "deleteProduct($event, p)">Delete</button>
+            <button class="btn btn-secondary" (click) = "onDeleteProduct(p.id)">Delete</button>
           </td>
           
         </tr>
@@ -56,55 +56,7 @@
     </table>
   </div>
 </section>
-
-<div class="modal fade" id="modalProduct" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Producto Nuevo</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <form>
-          <div class="form-group">
-            <label for="nombre" class="col-form-label">Nombre:</label>
-            <input type="text" class="form-control" name="nombre">
-          </div>
-          -DEPARTAMENTOS-
-          <div class="form-group col-md-6">
-            <label for="departamento">Departamento:</label>
-            <select name="departamento" class="form-control">
-              <option value="Casa">Casa</option>
-              <option value="Electrodomestico">Electrodomestico</option>
-              <option value="Ferreteria">Ferreteria</option>
-            </select>
-          </div>
-          <div class="form-group col-md-6">
-            <label for="price">Precio:</label>
-            <input type="number" name="price" class="form-control" placeholder="0,00Bs.">
-          </div>
-          <div class="form-group col-md-6">
-            <label for="oferta">Oferta:</label>
-            <select name="oferta"  class="form-control">
-              <option value="Si">Si</option>
-              <option value="No">No</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="message-text" class="col-form-label">Descripcion:</label>
-            <textarea class="form-control" id="message-text"></textarea>
-          </div>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Salir</button>
-        <button type="button" class="btn btn-warning">Agregar Producto</button>
-      </div>
-    </div>
-  </div>
-</div>
+<app-modal></app-modal>
 
 
 

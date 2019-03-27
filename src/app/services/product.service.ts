@@ -12,34 +12,55 @@ export class ProductService {
   productsCollection: AngularFirestoreCollection<Product>;
   products: Observable<Product[]>;
   productDoc: AngularFirestoreDocument<Product>;
+  product: Observable<Product>;
+  public selectedProduct: Product = {
+    id: null
+  };
 
   constructor(public db: AngularFirestore) { 
-    this.productsCollection = this.db.collection('products');
-    this.products = this.productsCollection.snapshotChanges().pipe(map(actions => {
-        return actions.map(a => {
-          const data = a.payload.doc.data() as Product;
-          data.id = a.payload.doc.id;
-          return data;
-        });
-      }));
+    this.productsCollection = db.collection<Product>('products');
+    this.products = this.productsCollection.valueChanges();
   }
 
   getProducts(){
-    return this.products;
+    return this.products = this.productsCollection.snapshotChanges()
+    .pipe(map( changes => {
+     return changes.map(action => {
+       const data = action.payload.doc.data() as Product;
+       data.id = action.payload.doc.id;
+       return data;
+     }) ;
+    }));
   }
 
-  addProduct(product: Product){
+  addProduct(product: Product): void{
     this.productsCollection.add(product);
   }
 
-  deleteProduct(product: Product) {
-    this.productDoc = this.db.doc(`products/${product.id}`);
+  deleteProduct(idProduct: string): void {
+    this.productDoc = this.db.doc<Product>(`products/${idProduct}`);
     this.productDoc.delete();
   }
 
-  updateProduct(product: Product){
-    this.productDoc = this.db.doc(`products/${product.id}`);
+  updateProduct(product: Product): void{
+    let idProduct = product.id;
+    this.productDoc = this.db.doc(`products/${idProduct}`);
     this.productDoc.update(product);
 
   }
+
+  getOneProduct(idProduct: string){
+    this.productDoc = this.db.doc<Product>(`products/${idProduct}`);
+    return this.product = this.productDoc.snapshotChanges().pipe(map(action => {
+      if(action.payload.exists === false) {
+        return null
+      } else {
+        const data = action.payload.data() as Product;
+        data.id = action.payload.id;
+        return data;
+      }
+    }));
+  }
+
 }
+
