@@ -10,6 +10,7 @@
         </div>
         <div class="modal-body">
           <form  #formProduct="ngForm" (ngSubmit)="onSaveProduct(formProduct)">
+              <input type="hidden" name="id" [(ngModel)]="this.productService.selectedProduct.id">
             <div class="form-group">
               <label for="name" class="col-form-label">Nombre:</label>
               <input type="text" class="form-control" name="name" [(ngModel)]="this.productService.selectedProduct.name" >
