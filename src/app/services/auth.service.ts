@@ -12,6 +12,7 @@ import { Observable } from 'rxjs';
 })
 export class AuthService {
 
+  idUser: string;
   userCollection: AngularFirestoreCollection<userInterface>;
   users: Observable<userInterface[]>;
   userDoc: AngularFirestoreDocument<userInterface>; 
@@ -80,7 +81,21 @@ export class AuthService {
   }
 
   getUsers(){
-    return this.users;
-  }
+      return this.users = this.userCollection.snapshotChanges()
+      .pipe(map( changes => {
+       return changes.map(action => {
+         const data = action.payload.doc.data() as userInterface;
+         data.id = action.payload.doc.id;
+         return data;
+       }) ;
+      }));
+    }
+  
+    updateUser(user: userInterface): void{
+      let idUser = user.id;
+      this.userDoc = this.db.doc(`users/${idUser}`);
+      this.userDoc.update(user);
+  
+    }
 
 }

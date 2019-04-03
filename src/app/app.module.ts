@@ -44,6 +44,7 @@ import { AdminBarComponent } from './components/componentes/admin/admin-bar/admi
 import { UserListComponent } from './components/componentes/user/user-list/user-list.component';
 import { ModalComponent } from './components/componentes/productos/modal/modal.component';
 import { DetalleprodComponent } from './components/componentes/productos/detalleprod/detalleprod.component';
+import { UsuariosAdminComponent } from './components/componentes/admin/usuarios-admin/usuarios-admin.component';
 
 @NgModule({
   declarations: [
@@ -74,7 +75,8 @@ import { DetalleprodComponent } from './components/componentes/productos/detalle
     AdminBarComponent,
     UserListComponent,
     ModalComponent,
-    DetalleprodComponent
+    DetalleprodComponent,
+    UsuariosAdminComponent
   ],
   imports: [
     BrowserModule,

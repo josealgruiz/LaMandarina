@@ -3,7 +3,7 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Producto Nuevo</h5>
+          <h5 class="modal-title" id="exampleModalLabel">Producto</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -39,13 +39,22 @@
               <label for="description" class="col-form-label">Descripcion:</label>
               <input type="text" class="form-control" name="description" [(ngModel)]="this.productService.selectedProduct.description" >
             </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal" #btnClose>Salir</button>
-              <button type="submit" class="btn btn-warning">Guardar Producto</button>
+            <div class ="form-group">
+              <h5>Url imagen:</h5>
+              <input type="text" class="form-control" name="url" [(ngModel)]="this.productService.selectedProduct.url" (change)="onUpload($event)" >
             </div>
+           <!-- <div class="progress">
+              <div class="progress-bar progress-bar-striped bg-sucsee" role="progressbar"
+                [style.width]="(uploadPercent | async) + '%'">
+              </div>
+            </div><br>
+            <input #imageProduct type="hidden" [value]="urlImage | async"  >       
+            <button *ngIf="urlImage | async; else btnDisable"
+             type="submit" class="btn btn-dark btn-block ">Guardar Producto</button>
+            <ng-template #btnDisable>-->
+            <button type="submit" disabled=true class="btn btn-dark btn-block ">Guardar Producto</button>
           </form>
-        </div>
-        
+        </div>       
       </div>
     </div>
   </div>

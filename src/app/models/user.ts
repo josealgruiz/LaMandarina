@@ -10,5 +10,6 @@ export interface Roles{
     active?: boolean;
     roles: Roles;
     enable?: boolean;
+    dir?: string;
  }
  

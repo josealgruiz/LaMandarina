@@ -3,6 +3,9 @@ import { ProductService } from "../../../../services/product.service";
 import { Product } from 'src/app/models/products';
 import {BsModalService, BsModalRef} from'ngx-bootstrap/modal';
 import { NgForm } from "@angular/forms";
+import { AngularFireStorage } from "@angular/fire/storage";
+import { finalize } from "rxjs/operators";
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-products',
@@ -16,6 +19,7 @@ export class ProductsComponent implements OnInit {
   private products: Product[];
   constructor(public productService : ProductService) { }
   
+
 
   ngOnInit() {
     this.getListProducts();
@@ -46,4 +50,8 @@ export class ProductsComponent implements OnInit {
     console.log('Producto', product)
     this.productService.selectedProduct = Object.assign({}, product)
   }
+
+
+
+
 }
