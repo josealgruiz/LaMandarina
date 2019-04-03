@@ -1,5 +1,5 @@
 export interface Roles{
-    admin: boolean;
+    admin: string;
  }
  
  export interface userInterface{
@@ -7,7 +7,7 @@ export interface Roles{
     name?: string;
     email?: string;
     pass?: string;
-    active?: boolean;
+    active?: string;
     roles: Roles;
     enable?: boolean;
     dir?: string;
