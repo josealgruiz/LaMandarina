@@ -44,7 +44,7 @@ float: left;
 width: 250px;
 float: right;
 }
--->
+
 <body>
     <div class="container" >           
         <div class="box" *ngFor="let p of products">           
@@ -53,12 +53,31 @@ float: right;
                     <h2>{{p.name}}</h2>
                     <p>{{p.description}}</p><br>
                     <p>{{p.price}}</p><br>
-                    <button type="submit"  class="btn btn-warning btn-block ">
-                        Comprar
+                    <button type="submit" routerLink="/inicio/{{p.id}}" class="btn btn-warning btn-block ">
+                        Ver
                     </button>
                 </div>      
             </div>
         </div>
     </div>
-</body>
+</body>-->
+
+<body>
+        <div class="container" >
+            <div class="box" *ngFor="let p of products">
+                <div class=imgBox>
+                    <img src="{{p.url}}" alt="{{p.name}}">
+                </div>
+                <div class="details">
+                    <div class="content">
+                        <h2>{{p.name}}</h2>
+                        <p>{{p.description}}</p><br>
+                        <button type="submit" routerLink='/inicio/{{p.id}}' class="btn btn-warning btn-block ">
+                            Detalles!
+                        </button>
+                    </div>          
+                </div>
+            </div>
+        </div>
+        </body>
         

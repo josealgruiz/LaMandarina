@@ -27,6 +27,7 @@ import { CheckoutComponent } from './components/componentes/user/checkout/checko
 import { CartComponent } from './components/vistas/cart/cart.component';
 import { OrderComponent } from './components/vistas/order/order.component';
 import { DetalleprodComponent } from './components/componentes/productos/detalleprod/detalleprod.component';
+import { UsuariosAdminComponent } from './components/componentes/admin/usuarios-admin/usuarios-admin.component';
 
 const routes: Routes = [
   { path: '', redirectTo:'/bienvenida', pathMatch: 'full' },
@@ -48,9 +49,8 @@ const routes: Routes = [
       { path: 'cart', component: CartComponent},
       { path: 'checkout', component: CheckoutComponent},
       {path: 'order', component: OrderComponent},
-      {path: 'product/:id', component: DetalleprodComponent},
-
-
+      {path: ':id', component: DetalleprodComponent},
+      {path: 'profile', component: ProfileUComponent},
     ],
     component: NavegacionClienteComponent
   },
@@ -60,6 +60,7 @@ const routes: Routes = [
     children:[
       { path: '', component: PrincipalAdminComponent},
      { path: 'editproducts', component: EditproductsComponent},
+     { path: 'users', component: UsuariosAdminComponent}
 
     ],
     component: NavegacionAdminComponent

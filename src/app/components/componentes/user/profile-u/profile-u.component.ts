@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {userInterface} from 'src/app/models/user';
 import { AuthService } from 'src/app/services/auth.service';
+import { NgForm } from '@angular/forms';
 
 @Component({
  selector: 'app-profile-u',
@@ -12,7 +13,8 @@ export class ProfileUComponent implements OnInit {
 
   constructor(private authService: AuthService) { }
   user: userInterface = {
-    name: '',
+    dir: '',
+    name: 'hola',
     email: '',
     active: true,
     roles: {
