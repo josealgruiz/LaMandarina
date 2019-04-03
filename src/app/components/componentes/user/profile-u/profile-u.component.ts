@@ -7,6 +7,7 @@ import { AuthService } from 'src/app/services/auth.service';
  templateUrl: './profile-u.component.html',
  styleUrls: ['./profile-u.component.css']
 })
+
 export class ProfileUComponent implements OnInit {
 
   constructor(private authService: AuthService) { }
@@ -25,6 +26,7 @@ export class ProfileUComponent implements OnInit {
       if (user) {
         this.user.name = user.displayName;
         this.user.email = user.email;
+        this.providerId = user.providerData[0].providerId;
       }
     })
   }
