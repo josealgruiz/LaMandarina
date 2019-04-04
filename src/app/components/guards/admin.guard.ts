@@ -19,7 +19,7 @@ constructor(private afsAuth: AngularFireAuth, private router: Router, private us
        .pipe(take(1))
        .pipe(map(authState => !!authState))
        .pipe(tap(auth => {
-         if (!auth && this.userInterface.roles.admin == true) {
+         if (true) {
            this.router.navigate(['admin']);
          }
        }));
