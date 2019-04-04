@@ -28,6 +28,7 @@
       <thead>
         <tr>
           <th scope="col">#</th>
+          <th scope="col">&nbsp;</th>
           <th scope="col">Nombre</th>
           <th scope="col">Descripcion</th>
           <th scope="col">Precio</th>
@@ -40,6 +41,7 @@
       <tbody>
         <tr *ngFor="let p of products; index as i">
           <th scope="row">{{i+1}}</th>
+          <td><img src="{{p.url}}" alt="{{p.name}}"></td>
           <td>{{p.name}}</td>
           <td>{{p.description}}</td>
           <td>{{p.price}} Bs.</td>

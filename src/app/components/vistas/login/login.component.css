@@ -48,18 +48,18 @@ div{
   
     border-width: 6px;
     border-left-width: 0px;
-    border-color: orangered;
+    border-color: white;
     border-radius: 0%;
 }
 
 .card2{
     padding-left: 15px;
     border-radius: 0%;
-    padding-top: 38px;
+    padding-top: 0px;
     height: 452px ;
     border-width: 6px;
     border-right-width: 0px;
-    border-color: orangered;
+    border-color: white;
     
 }
 

@@ -63,7 +63,9 @@ float: right;
 </body>-->
 
 <body>
-        <div class="container" >
+    <div><h1>PRODUCTOS</h1></div>
+    
+        <div class="container">
             <div class="box" *ngFor="let p of products">
                 <div class=imgBox>
                     <img src="{{p.url}}" alt="{{p.name}}">
@@ -71,7 +73,7 @@ float: right;
                 <div class="details">
                     <div class="content">
                         <h2>{{p.name}}</h2>
-                        <p>{{p.description}}</p><br>
+                        <p>{{p.price}} BS.</p><br>
                         <button type="submit" routerLink='/inicio/{{p.id}}' class="btn btn-warning btn-block ">
                             Detalles!
                         </button>

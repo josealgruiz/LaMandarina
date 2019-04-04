@@ -32,5 +32,11 @@ export class ProfileUComponent implements OnInit {
       }
     })
   }
-
+  updateUser(user: userInterface){
+    this.authService.isAuth().subscribe(users => {
+      if(users){
+        this.user.name = user.name;
+      }
+    })
+  }
 }
