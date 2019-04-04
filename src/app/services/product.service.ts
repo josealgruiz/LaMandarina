@@ -10,7 +10,6 @@ import { userInterface } from '../models/user';
 })
 export class ProductService {
 
-  private carrito: Observable<Product[]>;
   productsCollection: AngularFirestoreCollection<Product>;
   products: Observable<Product[]>;
   productDoc: AngularFirestoreDocument<Product>;
@@ -19,7 +18,6 @@ export class ProductService {
     id: null
   };
   private idUser:string='zecw4Ud9cMUdDdXI0aPqnlpHC4q1';
-  private WishList: Observable<Product[]>;
   
 
   constructor(public db: AngularFirestore) { 
@@ -69,7 +67,9 @@ export class ProductService {
     this.productDoc.delete();
   }*/
 
-  
+  public addCart(userId: string, productId: string, product: Product){
+    this.db.collection('users').doc(userId).collection('cart').doc('productID').set(product);
+  }
 
   getProducts(){
     return this.products = this.productsCollection.snapshotChanges()
