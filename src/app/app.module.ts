@@ -6,6 +6,7 @@ import {Routes, RouterModule} from '@angular/router';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {ModalModule} from 'ngx-bootstrap/modal';
 
+
 /* FIREBASE */
 import { AngularFireModule } from "@angular/fire";
 import { environment } from "../environments/environment";
