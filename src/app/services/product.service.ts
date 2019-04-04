@@ -18,15 +18,15 @@ export class ProductService {
   public selectedProduct: Product = {
     id: null
   };
-  private idUser:string='';
+  private idUser:string='zecw4Ud9cMUdDdXI0aPqnlpHC4q1';
   private WishList: Observable<Product[]>;
   
 
   constructor(public db: AngularFirestore) { 
     this.productsCollection = db.collection<Product>('products');
-    this.products = this.productsCollection.valueChanges();
-    this.carrito = this.db.doc(this.idUser).collection<Product>('carrito').valueChanges();
-  }
+    this.products = this.productsCollection.valueChanges();}
+    /*this.carrito = this.db.doc(this.idUser).collection<Product>('carrito').valueChanges();
+  
 
   mandarCarrito(idProduct:any){
     var messageRef = this.db.doc(this.idUser).collection('carrito').add(idProduct);
@@ -67,7 +67,7 @@ export class ProductService {
   deleteProductDeseos(idProduct: string): void{
     this.productDoc = this.db.collection<userInterface>('users').doc(this.idUser).collection('deseos').doc(idProduct);
     this.productDoc.delete();
-  }
+  }*/
 
   
 
