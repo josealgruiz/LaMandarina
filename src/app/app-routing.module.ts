@@ -49,7 +49,7 @@ const routes: Routes = [
       { path: '', component: PrincipalComponent, canActivate: [AuthGuard]},
       { path: 'cart', component: CartComponent, canActivate: [AuthGuard]},
       { path: 'checkout', component: CheckoutComponent, canActivate: [AuthGuard]},
-      {path: 'order', component: OrderComponent, canActivate: [AuthGuard]},
+      {path: 'order', component: OrderComponent},
       {path: ':id', component: DetalleprodComponent, canActivate: [AuthGuard]},
       {path: 'profile', component: ProfileUComponent, canActivate: [AuthGuard]},
     ],
