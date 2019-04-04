@@ -16,9 +16,9 @@ export class ProfileUComponent implements OnInit {
     dir: '',
     name: 'hola',
     email: '',
-    active: true,
+    active: 'true',
     roles: {
-      admin: true
+      admin: 'true'
     }
   };
 
