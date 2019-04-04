@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import * as jsPDF from 'jspdf';
+//import * as jsPDF from 'jspdf';
 
 @Component({
   selector: 'app-checkout',
@@ -12,7 +12,7 @@ export class CheckoutComponent implements OnInit {
 
   ngOnInit() {
   }
-
+/*
 
   public DownloadPDF(){
 
@@ -33,5 +33,5 @@ export class CheckoutComponent implements OnInit {
 
     doc.save('compra.pdf');
   }
-
+*/
 }
