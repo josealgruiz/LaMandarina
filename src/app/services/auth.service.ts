@@ -68,16 +68,21 @@ export class AuthService {
     const data: userInterface = {
       id: user.uid,
       email: user.email,
+      active: 'true',
       roles: {
-        admin: true
+        admin: 'true'
       }
     }
     return userRef.set(data, { merge: true })
   }
-
-
-  isUserAdmin(userUid) {
-    return this.afs.doc<userInterface>(`users/${userUid}`).valueChanges();
+  getOneAdmin( idUser: string){
+    this.userDoc= this.afs.doc<userInterface>(`users/${idUser}`);
+    return this.userDoc.snapshotChanges()
+    .pipe(map(action=>{action.payload.data()
+      console.log(action.payload.data())
+        const data = action.payload.data() as userInterface;
+        return data.roles.admin;
+    }));
   }
 
   getUsers(){
@@ -98,4 +103,27 @@ export class AuthService {
   
     }
 
+
+    getOneActivo( idUser: string){
+      this.userDoc= this.afs.doc<userInterface>(`users/${idUser}`);
+      return this.userDoc.snapshotChanges()
+      .pipe(map(action=>{action.payload.data()
+        console.log(action.payload.data())
+          const data = action.payload.data() as userInterface;
+          return data.active;
+      }));
+    }
+
+    getOneinhabilitado( idUser: string){
+      this.userDoc= this.afs.doc<userInterface>(`users/${idUser}`);
+      return this.userDoc.snapshotChanges()
+      .pipe(map(action=>{action.payload.data()
+        console.log(action.payload.data())
+          const data = action.payload.data() as userInterface;
+          console.log(data);
+          
+          return data.active;
+
+      }));
+    }
 }
