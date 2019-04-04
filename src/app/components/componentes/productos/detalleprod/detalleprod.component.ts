@@ -22,5 +22,4 @@ export class DetalleprodComponent implements OnInit {
     this.product = product;
     });
   }
-
 }

@@ -17,9 +17,6 @@
             <h6 class="title-price"><small>PRECIO OFERTA</small></h6>
             <h3 style="margin-top:0px;">{{product.price}}</h3>
 
-            <!-- Detalles especificos del producto -->
-           <b></b>
-
             <!-- Botones de compra -->
             <div class="section" style="padding-bottom:20px;">
                 <button (click)="this.ProductService.mandarCarrito(producto)" class="btn btn-warning"><span style="margin-right:20px" class="glyphicon glyphicon-shopping-cart" aria-hidden="true" ></span> Agregar al carro</button>
@@ -37,7 +34,6 @@
                     {{product.description}}
                     </small>
                 </p>
-               
             </div>
         </div>		
     </div>
