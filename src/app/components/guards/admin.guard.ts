@@ -26,6 +26,7 @@ import { AuthService } from 'src/app/services/auth.service';
       next: ActivatedRouteSnapshot,
       state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
   
+<<<<<<< HEAD
       return this.afsAuth.authState
         .pipe(take(1))
         .pipe(map(authState => !!authState))
@@ -40,6 +41,14 @@ import { AuthService } from 'src/app/services/auth.service';
          if(data=='true'){ //Si esta baneado
            console.log('data auth',data);
            this.router.navigate(['bienvenida']);//mandalo a la bienbenida
+=======
+       return this.afsAuth.authState
+       .pipe(take(1))
+       .pipe(map(authState => !!authState))
+       .pipe(tap(auth => {
+         if (true) {
+           this.router.navigate(['admin']);
+>>>>>>> 07ba66db0047aef60c66f719389fe5429f87ecd9
          }
          else{ //si no esta baneado
            this.authService.isAuth().subscribe( auth => {
