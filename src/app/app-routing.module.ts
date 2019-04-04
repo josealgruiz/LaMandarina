@@ -46,7 +46,7 @@ const routes: Routes = [
   {
     path: 'inicio', 
     children:[
-      { path: '', component: PrincipalComponent, canActivate: [AuthGuard]},
+      { path: '', component: VistaprodComponent, canActivate: [AuthGuard]},
       { path: 'cart', component: CartComponent, canActivate: [AuthGuard]},
       { path: 'checkout', component: CheckoutComponent, canActivate: [AuthGuard]},
       {path: 'order', component: OrderComponent},
