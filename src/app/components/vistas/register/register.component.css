@@ -48,7 +48,7 @@ div{
   
     border-width: 6px;
     border-left-width: 0px;
-    border-color: orangered;
+    border-color: #D3D3D3;
     border-radius: 0%;
 }
 
@@ -59,6 +59,6 @@ div{
     height: 452px ;
     border-width: 6px;
     border-right-width: 0px;
-    border-color: orangered;
+    border-color: #D3D3D3;
     
 }
